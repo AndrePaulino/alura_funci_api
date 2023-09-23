@@ -1,0 +1,55 @@
+openapi: 3.1.0
+info:
+  title: API de funci
+  description: API para controlar funcionarios e seus cargos.
+  version: 0.0.1
+  termsOfService: https://mockapi.io
+  contact:
+    name: Suporte a Devs
+    email: contato@example.com
+    url: https://mockapi.io
+  license:
+    name: "Lincença: MIT"
+    url: https://opensource.org/license/mit/
+externalDocs:
+  description: Documentação
+  url: https://mockapi.io
+  
+servers:
+- url: https://650dc7e8a8b42265ec2cb19a.mockapi.io/
+  description: API de teste
+
+paths:
+  /funci:
+    get:
+      summary: Recupera todas os funcionarios.
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json: 
+              schema:
+                type: array
+                items:
+                  properties: 
+                    id:
+                      type: integer
+                    name:
+                      type: string
+  /cargo:
+    get:
+      summary: Recupera todos os cargos.
+      responses:
+        200: 
+          description: Sucesso
+          content:
+            application/json: 
+              schema: 
+                type: array
+                items:
+                  properties: 
+                    id:
+                      type: integer
+                    name:
+                      type: string
+
