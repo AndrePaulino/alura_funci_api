@@ -36,20 +36,52 @@ paths:
                       type: integer
                     name:
                       type: string
-  /cargo:
-    get:
-      summary: Recupera todos os cargos.
+                    cargo:
+                      type: string
+    post:
+      summary: Adicionar um novo funci.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                name:
+                  type: string
+                cargo:
+                  type: string
       responses:
-        200: 
+        201:
+          description: Sucesso
+    
+  /funci/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+    get:
+      summary: Retorna um funci pelo id
+      responses:
+        200:
           description: Sucesso
           content:
-            application/json: 
-              schema: 
-                type: array
-                items:
-                  properties: 
-                    id:
-                      type: integer
-                    name:
-                      type: string
+            application/json:
+              schema:
+                type: object
+                properties: 
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  cargo:
+                    type: string
+        404:
+          description: Funci não encontrado.
+          content:
+            application/json:
+              example: "Not found"
+
+
 
